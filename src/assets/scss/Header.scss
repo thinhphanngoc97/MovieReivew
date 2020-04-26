@@ -1,0 +1,93 @@
+.banner {
+    color: white;
+    background-image: linear-gradient(to top, rgba(0, 7, 44, 0.55), rgba(2, 1, 27, 0.85), rgba(0, 0, 0, 0.9)), url('../images/banner.jpg');
+    background-repeat: no-repeat;
+    height: auto;
+
+    .sticky-top-navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .header-navbar {
+        background-color: rgba(1, 1, 24, 0.9) !important;
+        box-shadow: 0 0px 20px 0 black;
+        z-index: 200;
+        
+        @media (max-width: 991px) {
+            // Override background color
+            background-color: rgba(1, 1, 24, 0.9) !important;
+            // Center the menu items
+            text-align: center;
+        }
+
+        .navbar-nav {
+            // Override hover styles for bootstrap menu item
+            a:hover {
+                color: #08b89c;
+                font-weight: 700;
+            }
+
+            // Activated menu item
+            .activated {
+                color: #08b89c;
+                font-weight: 700;
+            }
+        }
+
+        // Style for items in navbar
+        .item {
+            color: rgba(212,255,249,.8);
+        }
+
+        .login-btn {
+            //color: #08b89c;
+            padding: 16px 30px;
+        }
+        
+        .sign-up-btn {
+            border-radius: 5px 35px 5px 30px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 15px 38px;
+            background: linear-gradient(to bottom,#009688 0,#0b4077 100%);
+            box-shadow: 0 6px 16px 0 rgba(10,66,119,.42);
+            border: none;
+        }
+
+    }
+
+    .header-content {
+        // In order to apply z-index property
+        position: relative;
+        padding: 150px 0px 200px 0px;
+        text-align: center;
+        z-index: 100;
+
+        .header-intro{
+            font-family: 'Open Sans', sans-serif;
+            font-size: 25px;
+        }
+
+        .header-title {
+            font-family: Focobold;
+            font-size: 55px;
+            font-weight: 700;
+            padding: 15px 0px;
+            letter-spacing: 3px;
+        }
+
+        .header-description {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        .header-quote {
+            padding-top: 15px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+        }
+    }
+}

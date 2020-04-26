@@ -1,0 +1,40 @@
+.not-found {
+    background-image: linear-gradient(to top, rgba(0, 7, 44, 0.55), rgba(2, 1, 27, 0.85), rgba(0, 0, 0, 0.9)), url('../images/banner.jpg');
+    background-repeat: no-repeat;
+    height:100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .not-found-card {
+        width: 400px;
+        height: 500px;
+        box-shadow: 5px 10px 18px black;
+
+        .not-found-title {
+            font-family: Focobold;
+            padding: 20px 0px;
+        }
+
+        .not-found-404 {
+            font-family: Focobold;
+            font-size: 100px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    
+        .return-btn {
+            border-radius: 5px 35px 5px 30px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 15px 38px;
+            background: linear-gradient(to bottom,#009688 0,#0b4077 100%);
+            box-shadow: 0 6px 16px 0 rgba(10,66,119,.42);
+            border: none;
+        }
+    }
+}
