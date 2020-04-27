@@ -4,12 +4,13 @@ import logo from '../assets/images/play.png';
 import {
     NavLink,
   } from "react-router-dom";
+import { connect } from 'react-redux';
 
 class Header extends Component {
     render() {
         return (
             <div>
-                {this.props.isShow === true &&
+                {this.props.headerFooter.isShow &&
                 <div className="banner">
                     {/* Navigation bar */}
                     <nav className="navbar sticky-top-navbar navbar-expand-lg navbar-dark bg-dark header-navbar">
@@ -50,7 +51,7 @@ class Header extends Component {
                         </div>                 
                     </nav>
                     {/* Header's content. Include introduction, web title, description and quote */}
-                    {this.props.type === 1 && 
+                    {this.props.headerFooter.headerType === 1 && 
                     <div className="container">
                         <div className="header-content">
                             <div className="header-intro">
@@ -73,4 +74,8 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default connect((store) => {
+    return {
+      headerFooter: store.headerFooter,
+    }
+})(Header);

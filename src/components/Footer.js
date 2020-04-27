@@ -3,12 +3,13 @@ import '../assets/scss/Footer.scss';
 import {
     Link,
   } from "react-router-dom";
+import { connect } from 'react-redux';
 
 class Footer extends Component {
     render() {
         return (
             <div>
-                {this.props.isShow === true &&
+                {this.props.headerFooter.isShow &&
                 <div className="footer">
                     <div className="container">
                         <div className="row">
@@ -17,10 +18,10 @@ class Footer extends Component {
                                 <div className="footer-column-content">
                                     <ul>
                                         <li>
-                                            <Link to="/" className="nav-link nav-link-nav">Home</Link>
+                                            <Link to="/" className="nav-link-nav">Home</Link>
                                         </li>
                                         <li>
-                                            <Link to="/about" className="nav-link nav-link-nav">About</Link>
+                                            <Link to="/about" className="nav-link-nav">About</Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -30,19 +31,19 @@ class Footer extends Component {
                                 <div className="footer-column-content">
                                     <ul>
                                         <li>
-                                            <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank" className="nav-link nav-link-icon-in-fb">Facebook</a>
+                                            <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank" className="nav-link-icon-in-fb">Facebook</a>
                                         </li>
                                         <li>
-                                            <a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank" className="nav-link nav-link-icon-in-ins">Instagram</a>
+                                            <a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank" className="nav-link-icon-in-ins">Instagram</a>
                                         </li>
                                         <li>
-                                            <a href="https://www.youtube.com/" rel="noopener noreferrer" target="_blank" className="nav-link nav-link-icon-in-yt">Youtube</a>
+                                            <a href="https://www.youtube.com/" rel="noopener noreferrer" target="_blank" className="nav-link-icon-in-yt">Youtube</a>
                                         </li>   
                                         <li>
-                                            <a href="https://www.linkedin.com/" rel="noopener noreferrer" target="_blank" className="nav-link nav-link-icon-in-li">LinkedIn</a>
+                                            <a href="https://www.linkedin.com/" rel="noopener noreferrer" target="_blank" className="nav-link-icon-in-li">LinkedIn</a>
                                         </li>
                                         <li>
-                                            <a href="https://twitter.com/" rel="noopener noreferrer" target="_blank" className="nav-link nav-link-icon-in-tw">Twitter</a>
+                                            <a href="https://twitter.com/" rel="noopener noreferrer" target="_blank" className="nav-link-icon-in-tw">Twitter</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -69,10 +70,15 @@ class Footer extends Component {
                             </div>
                         </div>
                     </div>
+                    <div className="text-center copy-right">© 2020 Corydoras</div>
                 </div>}
             </div>
         );
     }
 }
 
-export default Footer;
+export default connect((store) => {
+    return {
+      headerFooter: store.headerFooter,
+    }
+})(Footer);

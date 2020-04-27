@@ -6,15 +6,13 @@ import {
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Routes from './Routes';
+import { connect } from 'react-redux';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       is_visible: true,
-      isShowHeaderFooter: true,
-      // 1: full option, 0: do not show banner
-      headerType: 1,
     };
   }
 
@@ -50,10 +48,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header type={this.state.headerType} isShow={this.state.isShowHeaderFooter} />
+          <Header />
           {/* Content body. Config at routes.js */}
           <Routes />
-          <Footer isShow={this.state.isShowHeaderFooter} />
+          <Footer />
           {/* Scroll to top button */}
           {is_visible && <div className="scroll-to-top fa fa-arrow-up" onClick={() => this.scrollToTop()}></div>}
         </div>
@@ -62,4 +60,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect((store) => {
+  return {
+    // is_visible
+  }
+})(App);

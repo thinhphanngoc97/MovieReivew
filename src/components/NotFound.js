@@ -3,8 +3,14 @@ import '../assets/scss/NotFound.scss';
 import {
     NavLink,
   } from "react-router-dom";
+import { connect } from 'react-redux';
 
 class NotFound extends Component {
+    componentDidMount() {
+        let {dispatch} = this.props;
+        dispatch({type: 'HIDE_HEADER_FOOTER'});
+    }
+
     render() {
         return(
             <div className="not-found">
@@ -24,4 +30,6 @@ class NotFound extends Component {
     }
 }
 
-export default NotFound;
+export default connect((store) => {
+    return {}
+})(NotFound);
