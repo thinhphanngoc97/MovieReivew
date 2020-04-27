@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      is_visible: true,
+      is_visible: false,
     };
   }
 
