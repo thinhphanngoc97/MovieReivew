@@ -15,10 +15,6 @@ class Header extends Component {
                     {/* Navigation bar */}
                     <nav className="navbar sticky-top-navbar navbar-expand-lg navbar-dark bg-dark header-navbar">
                         <div className="container">
-                            {/* Brand logo */}
-                            {/* <a className="navbar-brand" href="/">
-                                <img src={logo} alt="Logo" />
-                            </a> */}
                             <NavLink exact to="/" className="navbar-brand">
                                 <img src={logo} alt="Logo" />
                             </NavLink>
@@ -30,6 +26,9 @@ class Header extends Component {
                                 <ul className="navbar-nav mr-auto">
                                     <li className="nav-item">
                                         <NavLink exact to="/" activeClassName="activated" className="nav-link item">Home</NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink to="/movies" activeClassName="activated" className="nav-link item">Movies</NavLink>
                                     </li>
                                     <li className="nav-item">
                                         <NavLink to="/about" activeClassName="activated" className="nav-link item">About</NavLink>

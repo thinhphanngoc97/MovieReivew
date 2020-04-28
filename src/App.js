@@ -49,7 +49,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-          {/* Content body. Config at routes.js */}
+          {/* Content body. Config at Routes.js */}
           <Routes />
           <Footer />
           {/* Scroll to top button */}

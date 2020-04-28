@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class About extends Component {
+class Movies extends Component {
     componentDidMount() {
         // Dispatch action to reducer to hide header's banner
         let {dispatch} = this.props;
@@ -12,7 +12,7 @@ class About extends Component {
         return(
             <div className="container">
                 <div className="main-section">
-                    <div>About Page</div>
+                    <div>Movies Page</div>
                 </div>
             </div>
         );
@@ -21,4 +21,4 @@ class About extends Component {
 
 export default connect((store) => {
     return {}
-})(About);
+})(Movies);

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import '../assets/scss/Footer.scss';
-import {
-    Link,
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 
 class Footer extends Component {
@@ -19,6 +17,9 @@ class Footer extends Component {
                                     <ul>
                                         <li>
                                             <Link to="/" className="nav-link-nav">Home</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/movies" className="nav-link-nav">Movies</Link>
                                         </li>
                                         <li>
                                             <Link to="/about" className="nav-link-nav">About</Link>

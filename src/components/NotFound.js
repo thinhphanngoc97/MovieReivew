@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 class NotFound extends Component {
     componentDidMount() {
+        // Dispatch action to reducer to hide header and footer
         let {dispatch} = this.props;
         dispatch({type: 'HIDE_HEADER_FOOTER'});
     }
