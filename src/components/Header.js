@@ -38,11 +38,11 @@ class Header extends Component {
                                     <ul className="navbar-nav">
                                         {/* Login */}
                                         <li className="nav-item">
-                                            <a href="/login" className="nav-link login-btn item">Log in</a>
+                                            <NavLink to="/login" className="nav-link login-btn item">Log in</NavLink>
                                         </li>
                                         {/* Sign up  */}
                                         <li className="nav-item">
-                                            <a href="/register" className="btn sign-up-btn">Sign Up</a>
+                                            <NavLink to="/register" className="btn sign-up-btn">Sign Up</NavLink>
                                         </li>
                                     </ul>
                                 </form>

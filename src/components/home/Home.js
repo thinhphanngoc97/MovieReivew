@@ -29,7 +29,7 @@ class Home extends Component {
                     <h4 className="section-title">Upcoming</h4>
                     <UpcomingMoviesList/>
                     <br/>
-                    <h4 className="section-title">Latest Trailers</h4>
+                    {/* <h4 className="section-title">Latest Trailers</h4> */}
                 </div>
             </div>
         );

@@ -7,14 +7,18 @@ import Home from './components/home/Home';
 import About from './components/About';
 import NotFound from './components/NotFound';
 import Movies from './components/movies/Movies';
+import NotAvailable from './components/NotAvailable';
 
 class Routes extends Component {
     render() {
         return(
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="/movies" component={Movies} />
+                <Route path="/about" component={NotAvailable} />
+                <Route path="/movies" component={NotAvailable} />
+                <Route path="/login" component={NotAvailable} />
+                <Route path="/register" component={NotAvailable} />
+                <Route path="/not-available" component={NotAvailable} />
                 <Route component={NotFound} />
             </Switch>
         );
