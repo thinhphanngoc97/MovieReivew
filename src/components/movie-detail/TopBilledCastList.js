@@ -26,7 +26,6 @@ class TopBilledCastList extends Component {
                 list: res.data.cast,
                 isLoading: false
             })
-            console.log(this.state.list);
         })
         .catch (err => {
             console.log(err);

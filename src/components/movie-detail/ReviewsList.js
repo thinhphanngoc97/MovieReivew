@@ -28,7 +28,6 @@ class ReviewsList extends Component {
                 list: res.data.results,
                 isLoading: false
             })
-            console.log(this.state.list);
         })
         .catch (err => {
             console.log(err);
