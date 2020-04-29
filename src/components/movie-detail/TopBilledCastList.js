@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import * as Constant from '../../utils/Constant';
 import axios from 'axios';
-import MovieCardItem from './MovieCardItem';
+import CastCardItem from './CastCardItem';
 
-class TrendingMoviesList extends Component {
+class TopBilledCastList extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,19 +13,20 @@ class TrendingMoviesList extends Component {
     }
 
     componentDidMount() {
-        // Fetch API to get trending movies list from themoviedb.org 
+        // Fetch API to get top billed cast list from themoviedb.org 
         axios({
             method: 'GET',
-            url: `${Constant.API_URL}/trending/movie/week`,
+            url: `${Constant.API_URL}/movie/${this.props.movieId}/credits`,
             params: {
                 api_key: Constant.API_KEY
             }
         })
         .then (res => {
             this.setState({
-                list: res.data.results,
+                list: res.data.cast,
                 isLoading: false
             })
+            console.log(this.state.list);
         })
         .catch (err => {
             console.log(err);
@@ -39,10 +40,7 @@ class TrendingMoviesList extends Component {
                 <div className="popular-section">
                     {
                         this.state.list.map((item, index) => {
-                            if (item.vote_average === 0) { 
-                                item.vote_average = 'N/A'; 
-                            };
-                            return <MovieCardItem key={index} id={item.id} name={item.title} posterURL={`${Constant.POSTER_URL}${item.poster_path}`} releaseDay={item.release_date} score={item.vote_average}/>
+                            return <CastCardItem key={index} name={item.name} character={item.character} profileURL={`${Constant.POSTER_URL}${item.profile_path}`}/>
                         })
                     }
                 </div>}
@@ -51,4 +49,4 @@ class TrendingMoviesList extends Component {
     }
 }
 
-export default TrendingMoviesList;
+export default TopBilledCastList;

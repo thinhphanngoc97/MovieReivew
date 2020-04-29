@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import * as Constant from '../../utils/Constant';
 import axios from 'axios';
-import MovieCardItem from './MovieCardItem';
+import MovieCardItem from '../home/MovieCardItem';
 
-class TrendingMoviesList extends Component {
+class SimilarMoviesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,12 +13,14 @@ class TrendingMoviesList extends Component {
     }
 
     componentDidMount() {
-        // Fetch API to get trending movies list from themoviedb.org 
+        // Fetch API to get similar movies list from themoviedb.org 
         axios({
             method: 'GET',
-            url: `${Constant.API_URL}/trending/movie/week`,
+            url: `${Constant.API_URL}/movie/${this.props.movieId}/similar`,
             params: {
-                api_key: Constant.API_KEY
+                api_key: Constant.API_KEY,
+                language: Constant.DEFAULT_LANGUAGE,
+                page: 1,
             }
         })
         .then (res => {
@@ -51,4 +53,4 @@ class TrendingMoviesList extends Component {
     }
 }
 
-export default TrendingMoviesList;
+export default SimilarMoviesList;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import * as Constant from '../../utils/Constant';
 import axios from 'axios';
-import MovieCardItem from './MovieCardItem';
+import ReviewItem from './ReviewItem';
 
-class TrendingMoviesList extends Component {
+class ReviewsList extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,12 +13,14 @@ class TrendingMoviesList extends Component {
     }
 
     componentDidMount() {
-        // Fetch API to get trending movies list from themoviedb.org 
+        // Fetch API to get reviews list from themoviedb.org 
         axios({
             method: 'GET',
-            url: `${Constant.API_URL}/trending/movie/week`,
+            url: `${Constant.API_URL}/movie/${this.props.movieId}/reviews`,
             params: {
-                api_key: Constant.API_KEY
+                api_key: Constant.API_KEY,
+                language: Constant.DEFAULT_LANGUAGE,
+                page: 1
             }
         })
         .then (res => {
@@ -26,6 +28,7 @@ class TrendingMoviesList extends Component {
                 list: res.data.results,
                 isLoading: false
             })
+            console.log(this.state.list);
         })
         .catch (err => {
             console.log(err);
@@ -36,13 +39,10 @@ class TrendingMoviesList extends Component {
         return (
             <div>
                 {!this.state.isLoading &&
-                <div className="popular-section">
+                <div className="reviews-container">
                     {
                         this.state.list.map((item, index) => {
-                            if (item.vote_average === 0) { 
-                                item.vote_average = 'N/A'; 
-                            };
-                            return <MovieCardItem key={index} id={item.id} name={item.title} posterURL={`${Constant.POSTER_URL}${item.poster_path}`} releaseDay={item.release_date} score={item.vote_average}/>
+                            return <ReviewItem key={index} author={item.author} content={item.content}/>
                         })
                     }
                 </div>}
@@ -51,4 +51,4 @@ class TrendingMoviesList extends Component {
     }
 }
 
-export default TrendingMoviesList;
+export default ReviewsList;

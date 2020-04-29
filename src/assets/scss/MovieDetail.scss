@@ -1,0 +1,28 @@
+// Movie detail
+.movie-banner {
+    background-image: linear-gradient(to top, rgba(0, 7, 44, 0.55), rgba(2, 1, 27, 0.85), rgba(0, 0, 0, 0.9));
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+// Review item
+.review-item {
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: none;
+    box-shadow: 5px 10px 18px rgb(219, 219, 219);
+    max-height: 270px;
+    overflow-y: scroll;
+
+    .user-icon {
+        padding: 0px 10px 20px 3px;
+    }
+
+    .card-title {
+        padding-top: 3px;
+    }
+
+    .card-text {
+        padding-left: 45px;
+    }
+}

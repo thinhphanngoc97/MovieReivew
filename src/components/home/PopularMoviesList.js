@@ -45,7 +45,7 @@ class PopularMoviesList extends Component {
                             if (item.vote_average === 0) { 
                                 item.vote_average = 'N/A'; 
                             };
-                            return <MovieCardItem key={index} name={item.title} posterURL={`${Constant.POSTER_URL}${item.poster_path}`} releaseDay={item.release_date} score={item.vote_average}/>
+                            return <MovieCardItem key={index} id={item.id} name={item.title} posterURL={`${Constant.POSTER_URL}${item.poster_path}`} releaseDay={item.release_date} score={item.vote_average}/>
                         })
                     }
                 </div>}
