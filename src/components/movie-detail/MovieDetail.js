@@ -7,6 +7,7 @@ import SimilarMoviesList from './SimilarMoviesList';
 import TopBilledCastList from './TopBilledCastList';
 import ReviewsList from './ReviewsList';
 import { Link } from "react-router-dom";
+import TrailersList from './TrailersList';
 
 class MovieDetail extends Component {
     constructor(props) {
@@ -97,6 +98,9 @@ class MovieDetail extends Component {
                                     <h4 className="section-title">Reviews</h4>
                                     <ReviewsList movieId={this.props.match.params.id}/>
                                     <br/>
+                                    <h4 className="section-title">Trailers</h4>
+                                    <TrailersList movieId={this.props.match.params.id}/>
+                                    <br/>
                                     <h4 className="section-title">Similar movies</h4>
                                     <SimilarMoviesList movieId={this.props.match.params.id}/>
                                     <br/>
@@ -107,11 +111,11 @@ class MovieDetail extends Component {
                                             <div>
                                                 <strong>Budget</strong>
                                             </div>
-                                            <p>{`${this.state.movieInfo.budget} USD`}</p>
+                                            <p>{`$${this.state.movieInfo.budget}`}</p>
                                             <div>
                                                 <strong>Revenue</strong>
                                             </div>
-                                            <p>{`${this.state.movieInfo.revenue} USD`}</p>
+                                            <p>{`$${this.state.movieInfo.revenue}`}</p>
                                             <div>
                                                 <strong>Vote count</strong>
                                             </div>

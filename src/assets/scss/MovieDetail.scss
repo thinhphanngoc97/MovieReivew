@@ -117,3 +117,16 @@
         padding-left: 45px;
     }
 }
+
+
+.trailers-list {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
+    .youtube-trailer {
+        border-radius: 10px;
+        box-shadow: 5px 10px 18px rgb(138, 138, 138);
+        margin-right: 20px;
+    }
+}
