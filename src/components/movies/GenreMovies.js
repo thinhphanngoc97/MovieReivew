@@ -45,7 +45,7 @@ class GenreMovies extends Component {
             <div className="container">
                 <div className="movies-main-section">
                     <div className="row">
-                        <div className="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                             <div className="card genre-selection-card">
                                 <div className="card-header">
                                     <strong>Genres</strong>
@@ -65,7 +65,7 @@ class GenreMovies extends Component {
                             </div>
                             <br/>
                         </div>
-                        <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                        <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                             <GenreMoviesList key={this.props.match.params.id} genreId={this.props.match.params.id}/>
                         </div>
                     </div>

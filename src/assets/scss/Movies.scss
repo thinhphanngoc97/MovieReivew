@@ -34,4 +34,21 @@
 .movies-list-section {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 50px;
+
+    @media (max-width: 991px) {
+        margin-left: 0px;
+    }
+
+    .movie-card-item {
+        margin-right: 40px;
+
+        @media (max-width: 991px) {
+            margin-right: 20px;
+        }
+
+        @media (max-width: 361px) {
+            margin-right: 10px;
+        }
+    }
 }

@@ -1,0 +1,17 @@
+.main-section-about {
+    margin: 150px 0px 100px 0px;
+
+    .profile-image {
+        border-radius: 5px;
+        height: 110vw;
+        
+        @media (min-width: 992px) {
+            height: 30vw;
+        }
+    }
+
+    .floating-card {
+        border-radius: 5px;
+        box-shadow: 5px 10px 10px rgb(218, 218, 218);
+    }
+}
