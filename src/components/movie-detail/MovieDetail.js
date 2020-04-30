@@ -49,14 +49,14 @@ class MovieDetail extends Component {
                 {!this.state.isLoading &&
                     <div className="container">
                         {/* Movie's backdrop */}
-                        <div className="movie-backdrop" style={{backgroundImage: `url(${Constant.BACKDROP_URL}/${this.state.movieInfo.backdrop_path})`}}></div>
+                        <div className="movie-backdrop" style={{backgroundImage: `url(${Constant.BACKDROP_URL}${this.state.movieInfo.backdrop_path})`}}></div>
                         <div className="main-section">
                             <div className="row">
                                 <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
                                     {/* Main detail of movie */}
                                     <div className="card movie-main-detail">
                                         <div className="card-body">
-                                            <div className="movie-score">{this.state.movieInfo.vote_average}</div>
+                                            <div className="movie-score">{this.state.movieInfo.vote_average === 0 ? 'N/A' : this.state.movieInfo.vote_average}</div>
                                             <div>
                                                 {/* Movie's title */}
                                                 <Link className="movie-title" to={`/movie-detail/${this.state.movieInfo.id}/${this.state.movieInfo.title}`}>{this.state.movieInfo.title}</Link>
@@ -111,19 +111,19 @@ class MovieDetail extends Component {
                                             <div>
                                                 <strong>Budget</strong>
                                             </div>
-                                            <p>{`$${this.state.movieInfo.budget}`}</p>
+                                            <p>{this.state.movieInfo.budget === 0 ? 'N/A' : `$${this.state.movieInfo.budget}`}</p>
                                             <div>
                                                 <strong>Revenue</strong>
                                             </div>
-                                            <p>{`$${this.state.movieInfo.revenue}`}</p>
+                                            <p>{this.state.movieInfo.revenue === 0 ? 'N/A' : `$${this.state.movieInfo.revenue}`}</p>
                                             <div>
                                                 <strong>Vote count</strong>
                                             </div>
-                                            <p>{this.state.movieInfo.vote_count}</p>
+                                            <p>{this.state.movieInfo.vote_count === 0 ? 'N/A' : this.state.movieInfo.vote_count}</p>
                                             <div>
                                                 <strong>Popularity</strong>
                                             </div>
-                                            <p>{this.state.movieInfo.popularity}</p>
+                                            <p>{this.state.movieInfo.popularity === 0 ? 'N/A' : this.state.movieInfo.popularity}</p>
                                         </div>
                                     </div>
                                 </div>

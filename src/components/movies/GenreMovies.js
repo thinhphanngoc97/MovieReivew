@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../../assets/scss/Movies.scss'
-import MoviesList from './MoviesList';
+import GenreMoviesList from './GenreMoviesList';
 import axios from 'axios';
 import * as Constant from '../../utils/Constant';
 import { NavLink } from "react-router-dom";
 
-class Movies extends Component {
+class GenreMovies extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -61,12 +61,12 @@ class Movies extends Component {
                                             )
                                         })}
                                     </ul>
-                                </div>
+                                </div>  
                             </div>
                             <br/>
                         </div>
                         <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
-                            <MoviesList/>
+                            <GenreMoviesList key={this.props.match.params.id} genreId={this.props.match.params.id}/>
                         </div>
                     </div>
                 </div>
@@ -76,5 +76,7 @@ class Movies extends Component {
 }
 
 export default connect((store) => {
-    return {}
-})(Movies);
+    return {
+        reload: store.reload
+    }
+})(GenreMovies);
