@@ -57,7 +57,7 @@ class About extends Component {
                             </div>
                             <br/>
                             <h4>Activities</h4>
-                            <div className="card floating card">
+                            <div className="card floating-card">
                                 <div className="card-body">
                                     <h4 className="font-weight-bold">Education</h4>
                                     <strong>University of Information Technology</strong>

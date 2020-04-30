@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../assets/scss/Home.scss';
 import image from '../../assets/images/user.png';
+import ReadMoreAndLess from 'react-read-more-less';
 
 class ReviewItem extends Component {
     render() {
@@ -12,7 +13,16 @@ class ReviewItem extends Component {
                         <h5 className="card-title font-weight-bold">{this.props.author}</h5>
                     </div>
                     <div className="row">
-                        <p className="card-text">{this.props.content}</p>
+                        <div className="card-text">
+                        <ReadMoreAndLess
+                            charLimit={250}
+                            readMoreText="Read more"
+                            readLessText="Read less"
+                        >
+                            {this.props.content}
+                        </ReadMoreAndLess>
+                        </div>
+                   
                     </div>
                 </div>
             </div>
