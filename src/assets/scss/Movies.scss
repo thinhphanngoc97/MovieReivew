@@ -5,10 +5,23 @@
         border-radius: 5px;
         box-shadow: 5px 10px 10px rgb(218, 218, 218);
 
+        .card-header-title {
+            border-radius: 5px;
+            color: #08b89c;
+            background-color: #010118;
+
+            .dropdown-icon {
+                color: #08b89c;
+                text-decoration: none;
+
+                position: absolute;
+                right: 10px;
+                top: 15px;
+            }
+        }
+
         .group-container {
             border-radius: 5px;
-            height: 290px;
-            overflow-y: scroll;
 
             ul {
                 li  {
@@ -28,6 +41,24 @@
             }
         }
     }
+
+    .pagination-center {
+        ul {
+            // Center pagination
+            justify-content: center;
+
+            li {
+                a{
+                    color: #010118;
+                }
+
+                .activated {
+                    background-color:#010118;
+                    color: #08b89c;
+                }
+            }
+        }
+    }
 }
 
 // Movies list
@@ -35,6 +66,9 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: 50px;
+
+    // Center list
+    justify-content: center;
 
     @media (max-width: 991px) {
         margin-left: 0px;

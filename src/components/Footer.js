@@ -19,7 +19,7 @@ class Footer extends Component {
                                             <Link to="/" className="nav-link-nav">Home</Link>
                                         </li>
                                         <li>
-                                            <Link to="/movies" className="nav-link-nav">Movies</Link>
+                                            <Link to="/movies/popular/page-1" className="nav-link-nav">Movies</Link>
                                         </li>
                                         <li>
                                             <Link to="/about" className="nav-link-nav">About</Link>

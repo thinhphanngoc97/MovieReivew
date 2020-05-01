@@ -18,8 +18,8 @@ class Routes extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path='/movie-detail/:id/:name' render={(props) => (<MovieDetail key={props.match.params.id} {...props} />)} />
                 <Route path="/about" component={About} />
-                <Route path="/movies/genre/:id/:name" component={GenreMovies} />
-                <Route path="/movies" component={Movies} />
+                <Route path="/movies/genre/:id/:name/page-:page" render={(props) => (<GenreMovies key={props.match.params.id} {...props} />)} />
+                <Route path="/movies/popular/page-:page" component={Movies} />
                 <Route path="/login" component={NotAvailable} />
                 <Route path="/register" component={NotAvailable} />
                 <Route path="/not-available" component={NotAvailable} />

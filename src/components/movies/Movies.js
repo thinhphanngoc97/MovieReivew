@@ -5,14 +5,21 @@ import MoviesList from './MoviesList';
 import axios from 'axios';
 import * as Constant from '../../utils/Constant';
 import { NavLink } from "react-router-dom";
+import Pagination from "react-js-pagination";
 
 class Movies extends Component {
     constructor(props) {
         super(props);
         this.state = {
             list: [],
-            isLoading: true
+            isLoading: true,
+            activePage: 1
         }
+    }
+
+    async handlePageChange(pageNumber) {
+        await this.setState({activePage: pageNumber});
+        await this.props.history.replace({ pathname: `/movies/popular/page-${this.state.activePage}`});
     }
 
     componentDidMount() {
@@ -47,16 +54,17 @@ class Movies extends Component {
                     <div className="row">
                         <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                             <div className="card genre-selection-card">
-                                <div className="card-header">
-                                    <strong>Genres</strong>
+                                <div className="card-header card-header-title">
+                                    <span>Genres</span>
+                                    <a className="dropdown-icon" data-toggle="collapse" href="#collapseGenres" aria-expanded="false" aria-controls="collapseGenres">︾</a>
                                 </div>
-                                <div className="group-container">
+                                <div className="group-container collapse" id="collapseGenres">
                                     <ul className="list-group list-group-flush">
                                         {!this.state.isLoading &&
                                         this.state.list.map((item, index) => {
                                             return (
                                             <li className="list-group-item" key={index}>
-                                                <NavLink activeClassName="activated" className="genre-item" to={`/movies/genre/${item.id}/${item.name}`}>{item.name}</NavLink>
+                                                <NavLink activeClassName="activated" className="genre-item" to={`/movies/genre/${item.id}/${item.name}/page-1`}>{item.name}</NavLink>
                                             </li>
                                             )
                                         })}
@@ -66,7 +74,19 @@ class Movies extends Component {
                             <br/>
                         </div>
                         <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                            <MoviesList/>
+                            <MoviesList key={this.state.activePage} page={this.state.activePage}/>
+                            <div className="pagination-center">
+                                <Pagination
+                                    activePage={this.state.activePage}
+                                    activeLinkClass="activated"
+                                    itemClass="page-item"
+                                    linkClass="page-link"
+                                    itemsCountPerPage={20}
+                                    totalItemsCount={400}
+                                    pageRangeDisplayed={5}
+                                    onChange={this.handlePageChange.bind(this)}
+                                />
+                            </div>    
                         </div>
                     </div>
                 </div>

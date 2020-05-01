@@ -20,7 +20,7 @@ class MoviesList extends Component {
             params: {
                 api_key: Constant.API_KEY,
                 language: Constant.DEFAULT_LANGUAGE,
-                page: 1,
+                page: this.props.page,
                 region: Constant.DEFAULT_REGION
             }
         })
