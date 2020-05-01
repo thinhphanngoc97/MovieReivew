@@ -39,7 +39,7 @@ class TopBilledCastList extends Component {
                 <div className="popular-section">
                     {
                         this.state.list.map((item, index) => {
-                            return <CastCardItem key={index} name={item.name} character={item.character} profileURL={`${Constant.POSTER_URL}${item.profile_path}`}/>
+                            return <CastCardItem key={index} name={item.name} character={item.character} profilePath={item.profile_path}/>
                         })
                     }
                 </div>}

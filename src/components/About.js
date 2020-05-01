@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../assets/scss/About.scss'
-import image from '../assets/images/68577676_1191618281021867_4423365596716990464_o.jpg'
+import '../assets/scss/About.scss';
+import image from '../assets/images/boss.jpg';
 
 class About extends Component {
     componentDidMount() {

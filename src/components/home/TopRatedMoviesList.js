@@ -42,7 +42,7 @@ class TopRatedMoviesList extends Component {
                 <div className="popular-section">
                     {
                         this.state.list.map((item, index) => {
-                            return <MovieCardItem key={index} id={item.id} name={item.title} posterURL={`${Constant.POSTER_URL}${item.poster_path}`} releaseDay={item.release_date} score={item.vote_average}/>
+                            return <MovieCardItem key={index} id={item.id} name={item.title} posterPath={item.poster_path} releaseDay={item.release_date} score={item.vote_average}/>
                         })
                     }
                 </div>}
