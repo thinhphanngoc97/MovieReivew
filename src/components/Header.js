@@ -7,6 +7,21 @@ import {
 import { connect } from 'react-redux';
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            keyword: ''
+        };
+    
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    async handleChange(event) {
+        await this.setState({
+            keyword: event.target.value
+        });
+    }
+      
     render() {
         return (
             <div>
@@ -34,18 +49,20 @@ class Header extends Component {
                                         <NavLink to="/about" activeClassName="activated" className="nav-link item">About</NavLink>
                                     </li>
                                 </ul>
-                                <form className="my-2 my-lg-0 ng-pristine ng-valid">
+                                <form className="form-inline my-2 my-lg-0 centered-form">
+                                    <input className="form-control mr-sm-2" type="text" placeholder="Search for movies" aria-label="Search" onChange={this.handleChange}/>
+                                    <NavLink className="btn btn-search my-2 my-sm-0" to={`/search-results/${this.state.keyword}/page-1`}>Search</NavLink>
+                                </form>
+                                {/* <form className="my-2 my-lg-0 ng-pristine ng-valid">
                                     <ul className="navbar-nav">
-                                        {/* Login */}
                                         <li className="nav-item">
                                             <NavLink to="/login" className="nav-link login-btn item">Log in</NavLink>
                                         </li>
-                                        {/* Sign up  */}
                                         <li className="nav-item">
                                             <NavLink to="/register" className="btn sign-up-btn">Sign Up</NavLink>
                                         </li>
                                     </ul>
-                                </form>
+                                </form> */}
                             </div>
                         </div>                 
                     </nav>

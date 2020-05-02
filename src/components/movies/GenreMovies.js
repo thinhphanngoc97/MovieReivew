@@ -96,7 +96,5 @@ class GenreMovies extends Component {
 }
 
 export default connect((store) => {
-    return {
-        reload: store.reload
-    }
+    return {}
 })(GenreMovies);

@@ -68,27 +68,27 @@ class MovieDetail extends Component {
                                                 <span>
                                                 {
                                                     this.state.movieInfo.genres.map((item, index) => {
-                                                        return <Link key={index} className="movie-genre" to="/no-available">{`${item.name} `}</Link>;
+                                                        return <Link key={index} className="movie-genre" to={`/movies/genre/${item.id}/${item.name}/page-1`}>{`${item.name} `}</Link>;
                                                     })
                                                 }
                                                 </span>
                                             </div>
                                             <br/>
-                                            <div>
+                                            <p>
                                                 <strong>Runtime: </strong>
                                                 <span>{`${this.state.movieInfo.runtime} Minutes`}</span>
-                                            </div>
+                                            </p>
                                             {/* Overview */}
                                             <div>
                                                 <strong>Overview: </strong>
                                                 <span>{this.state.movieInfo.overview}</span>
                                             </div>
-                                            <div className="option-list">
+                                            {/* <div className="option-list">
                                                 <span className="option option-add-to-watch-list"></span>
                                                 <span className="option option-mark-as-favorite"></span>
                                                 <span className="option option-rate"></span>
                                                 <span className="option option-share"></span>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                     <br/>

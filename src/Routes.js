@@ -10,6 +10,7 @@ import Movies from './components/movies/Movies';
 import NotAvailable from './components/NotAvailable';
 import MovieDetail from './components/movie-detail/MovieDetail';
 import GenreMovies from './components/movies/GenreMovies';
+import SearchResults from './components/search/SearchResults';
 
 class Routes extends Component {
     render() {
@@ -20,6 +21,7 @@ class Routes extends Component {
                 <Route path="/about" component={About} />
                 <Route path="/movies/genre/:id/:name/page-:page" render={(props) => (<GenreMovies key={props.match.params.id} {...props} />)} />
                 <Route path="/movies/popular/page-:page" component={Movies} />
+                <Route path="/search-results/:keyword/page-:page" render={(props) => (<SearchResults key={props.match.params.keyword} {...props} />)} />
                 <Route path="/login" component={NotAvailable} />
                 <Route path="/register" component={NotAvailable} />
                 <Route path="/not-available" component={NotAvailable} />

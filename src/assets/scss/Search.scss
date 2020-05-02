@@ -1,0 +1,22 @@
+.search-result-main-section {
+    margin: 100px 0px 50px 0px;
+    min-height: 500px;
+
+    .pagination-center {
+        ul {
+            // Center pagination
+            justify-content: center;
+
+            li {
+                a{
+                    color: #010118;
+                }
+
+                .activated {
+                    background-color:#010118;
+                    color: #08b89c;
+                }
+            }
+        }
+    }
+}
