@@ -8,14 +8,21 @@ import TopBilledCastList from './TopBilledCastList';
 import ReviewsList from './ReviewsList';
 import { Link } from "react-router-dom";
 import TrailersList from './TrailersList';
+import Pagination from "react-js-pagination";
 
 class MovieDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
             movieInfo: null,
-            isLoading: true
+            isLoading: true,
+            totalReview: 0,
+            activePage: 1,
         }
+    }
+
+    async handlePageChange(pageNumber) {
+        await this.setState({activePage: pageNumber});
     }
 
     componentDidMount() {
@@ -35,6 +42,25 @@ class MovieDetail extends Component {
         .then (res => {
             this.setState({
                 movieInfo: res.data,
+                isLoading: false
+            })
+        })
+        .catch (err => {
+            console.log(err);
+        })
+
+        // Fetch API to get reviews total from themoviedb.org 
+        axios({
+            method: 'GET',
+            url: `${Constant.API_URL}/movie/${this.props.match.params.id}/reviews`,
+            params: {
+                api_key: Constant.API_KEY,
+                language: Constant.DEFAULT_LANGUAGE
+            }
+        })
+        .then (res => {
+            this.setState({
+                totalReview: res.data.total_results,
                 isLoading: false
             })
         })
@@ -96,7 +122,19 @@ class MovieDetail extends Component {
                                     <TopBilledCastList movieId={this.props.match.params.id}/>
                                     <br/>
                                     <h4 className="section-title">Reviews</h4>
-                                    <ReviewsList movieId={this.props.match.params.id}/>
+                                    <ReviewsList movieId={this.props.match.params.id} page={this.state.activePage} key={this.state.activePage}/>
+                                    <div className="pagination-center-movie-detail">
+                                        <Pagination
+                                            activePage={this.state.activePage}
+                                            activeLinkClass="activated"
+                                            itemClass="page-item"
+                                            linkClass="page-link"
+                                            itemsCountPerPage={20}
+                                            totalItemsCount={this.state.totalReview}
+                                            pageRangeDisplayed={5}
+                                            onChange={this.handlePageChange.bind(this)}
+                                        />
+                                    </div>    
                                     <br/>
                                     <h4 className="section-title">Trailers</h4>
                                     <TrailersList movieId={this.props.match.params.id}/>

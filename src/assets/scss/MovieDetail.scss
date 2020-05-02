@@ -94,6 +94,24 @@
     box-shadow: 5px 10px 18px rgb(196, 196, 196);
 }
 
+.pagination-center-movie-detail {
+    ul {
+        // Center pagination
+        justify-content: center;
+
+        li {
+            a{
+                color: #010118;
+            }
+
+            .activated {
+                background-color:#010118 !important;
+                color: #08b89c !important;
+            }
+        }
+    }
+}
+
 // Review item
 .review-item {
     border-radius: 10px;

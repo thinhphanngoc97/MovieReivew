@@ -13,7 +13,8 @@ class GenreMovies extends Component {
         this.state = {
             list: [],
             isLoading: true,
-            activePage: 1
+            activePage: 1,
+            total: 0,
         }
     }
 
@@ -39,6 +40,25 @@ class GenreMovies extends Component {
         .then (res => {
             this.setState({
                 list: res.data.genres,
+                isLoading: false
+            })
+        })
+        .catch (err => {
+            console.log(err);
+        })
+
+        // Fetch API to get result total from themoviedb.org 
+        axios({
+            method: 'GET',
+            url: `${Constant.API_URL}/genre/${this.props.match.params.id}/movies`,
+            params: {
+                api_key: Constant.API_KEY,
+                language: Constant.DEFAULT_LANGUAGE
+            }
+        })
+        .then (res => {
+            this.setState({
+                total: res.data.total_results,
                 isLoading: false
             })
         })
@@ -82,7 +102,7 @@ class GenreMovies extends Component {
                                     itemClass="page-item"
                                     linkClass="page-link"
                                     itemsCountPerPage={20}
-                                    totalItemsCount={400}
+                                    totalItemsCount={this.state.total}
                                     pageRangeDisplayed={5}
                                     onChange={this.handlePageChange.bind(this)}
                                 />
