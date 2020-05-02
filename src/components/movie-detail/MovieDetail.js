@@ -61,7 +61,7 @@ class MovieDetail extends Component {
         .then (res => {
             this.setState({
                 totalReview: res.data.total_results,
-                isLoading: false
+                // isLoading: false
             })
         })
         .catch (err => {

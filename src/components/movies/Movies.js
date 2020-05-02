@@ -60,7 +60,7 @@ class Movies extends Component {
         .then (res => {
             this.setState({
                 total: res.data.total_results,
-                isLoading: false
+                // isLoading: false
             })
         })
         .catch (err => {
