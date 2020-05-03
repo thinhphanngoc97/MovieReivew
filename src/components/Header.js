@@ -22,10 +22,14 @@ class Header extends Component {
         });
     }
 
-    handleKeyPress(event) {
+    handleKeyPress = (event) => {
         if (event.key === "Enter") {
-            this.props.history.replace({ pathname: `/search-results/${this.state.keyword}/page-1`});
+            window.location.href=`/search-results/${this.state.keyword}/page-1`;
         }
+    }
+
+    handleClick = () => {
+        window.location.href=`/search-results/${this.state.keyword}/page-1`;
     }
       
     render() {
@@ -55,9 +59,9 @@ class Header extends Component {
                                         <NavLink to="/about" activeClassName="activated" className="nav-link item">About</NavLink>
                                     </li>
                                 </ul>
-                                <form className="form-inline my-2 my-lg-0 centered-form">
+                                <form className="form-inline my-2 my-lg-0 centered-form" onSubmit={e => { e.preventDefault(); }}>
                                     <input className="form-control mr-sm-2" type="text" placeholder="Search for movies..." aria-label="Search" onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
-                                    <NavLink className="btn btn-search my-2 my-sm-0" to={`/search-results/${this.state.keyword}/page-1`}>Search</NavLink>
+                                    <span className="btn btn-search my-2 my-sm-0" onClick={this.handleClick}>Search</span>
                                 </form>
                                 {/* <form className="my-2 my-lg-0 ng-pristine ng-valid">
                                     <ul className="navbar-nav">
