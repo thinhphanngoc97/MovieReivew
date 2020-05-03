@@ -21,6 +21,12 @@ class Header extends Component {
             keyword: event.target.value
         });
     }
+
+    handleKeyPress(event) {
+        if (event.key === "Enter") {
+            this.props.history.replace({ pathname: `/search-results/${this.state.keyword}/page-1`});
+        }
+    }
       
     render() {
         return (
@@ -50,7 +56,7 @@ class Header extends Component {
                                     </li>
                                 </ul>
                                 <form className="form-inline my-2 my-lg-0 centered-form">
-                                    <input className="form-control mr-sm-2" type="text" placeholder="Search for movies" aria-label="Search" onChange={this.handleChange}/>
+                                    <input className="form-control mr-sm-2" type="text" placeholder="Search for movies..." aria-label="Search" onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
                                     <NavLink className="btn btn-search my-2 my-sm-0" to={`/search-results/${this.state.keyword}/page-1`}>Search</NavLink>
                                 </form>
                                 {/* <form className="my-2 my-lg-0 ng-pristine ng-valid">

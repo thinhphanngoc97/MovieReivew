@@ -4,11 +4,35 @@
     height: 564px;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 5px 10px 18px rgb(196, 196, 196);
+
+    // Center movie poster
+    text-align: center;
+
+    .movie-poster-in-backdrop {
+        border-radius: 10px;
+        box-shadow: 5px 10px 18px rgb(8, 8, 8);
+        display: none;
+
+        margin-top: 125px;
+
+        @media (max-width: 991px) {
+            display: initial;
+        }
+    }
 }
 
 .movie-main-detail {
     border-radius: 10px;
     box-shadow: 5px 10px 18px rgb(196, 196, 196);
+
+    .movie-poster {
+        border-radius: 10px;
+        margin-top: 6px;
+
+        @media (max-width: 991px) {
+            display: none;
+        }
+    }
 
     .movie-score {
         width: 60px;
@@ -92,6 +116,10 @@
 .movie-additional-detail {
     border-radius: 10px;
     box-shadow: 5px 10px 18px rgb(196, 196, 196);
+
+    @media (max-width: 767px) {
+        display: none;
+    }
 }
 
 .pagination-center-movie-detail {

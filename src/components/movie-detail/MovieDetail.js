@@ -9,6 +9,7 @@ import ReviewsList from './ReviewsList';
 import { Link } from "react-router-dom";
 import TrailersList from './TrailersList';
 import Pagination from "react-js-pagination";
+import movieThumb from '../../assets/images/thumb-movie.jpg';
 
 class MovieDetail extends Component {
     constructor(props) {
@@ -75,7 +76,9 @@ class MovieDetail extends Component {
                 {!this.state.isLoading &&
                     <div className="container">
                         {/* Movie's backdrop */}
-                        <div className="movie-backdrop" style={{backgroundImage: `url(${Constant.BACKDROP_URL}${this.state.movieInfo.backdrop_path})`}}></div>
+                        <div className="movie-backdrop" style={{backgroundImage: `linear-gradient(to top, rgba(0, 7, 44, 0.55), rgba(2, 1, 27, 0.85), rgba(0, 0, 0, 0.9)), url(${Constant.BACKDROP_URL}${this.state.movieInfo.backdrop_path})`}}>
+                            <img className="movie-poster-in-backdrop" src={this.state.movieInfo.poster_path === null ? movieThumb : `${Constant.POSTER_URL}${this.state.movieInfo.poster_path}`} alt={this.state.movieInfo.title} title={this.state.movieInfo.title} />
+                        </div>
                         <div className="main-section">
                             <div className="row">
                                 <div className="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
@@ -83,38 +86,45 @@ class MovieDetail extends Component {
                                     <div className="card movie-main-detail">
                                         <div className="card-body">
                                             <div className="movie-score">{this.state.movieInfo.vote_average === 0 ? 'N/A' : this.state.movieInfo.vote_average}</div>
-                                            <div>
-                                                {/* Movie's title */}
-                                                <Link className="movie-title" to={`/movie-detail/${this.state.movieInfo.id}/${this.state.movieInfo.title}`}>{this.state.movieInfo.title}</Link>
-                                                {/* Release day */}
-                                                <span className="movie-release-day">{` (${this.state.movieInfo.release_date})`}</span>
+                                            <div className="row">
+                                                <div className="col-4">
+                                                    <img className="movie-poster" src={this.state.movieInfo.poster_path === null ? movieThumb : `${Constant.POSTER_URL}${this.state.movieInfo.poster_path}`} alt={this.state.movieInfo.title} title={this.state.movieInfo.title} />
+                                                </div>
+                                                <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+                                                    <div>
+                                                        {/* Movie's title */}
+                                                        <Link className="movie-title" to={`/movie-detail/${this.state.movieInfo.id}/${this.state.movieInfo.title}`}>{this.state.movieInfo.title}</Link>
+                                                        {/* Release day */}
+                                                        <span className="movie-release-day">{` (${this.state.movieInfo.release_date})`}</span>
+                                                    </div>
+                                                    <div>
+                                                        {/* Genres */}
+                                                        <span>
+                                                        {
+                                                            this.state.movieInfo.genres.map((item, index) => {
+                                                                return <Link key={index} className="movie-genre" to={`/movies/genre/${item.id}/${item.name}/page-1`}>{`${item.name} `}</Link>;
+                                                            })
+                                                        }
+                                                        </span>
+                                                    </div>
+                                                    <br/>
+                                                    <p>
+                                                        <strong>Runtime: </strong>
+                                                        <span>{`${this.state.movieInfo.runtime} Minutes`}</span>
+                                                    </p>
+                                                    {/* Overview */}
+                                                    <div>
+                                                        <strong>Overview: </strong>
+                                                        <span>{this.state.movieInfo.overview}</span>
+                                                    </div>
+                                                    {/* <div className="option-list">
+                                                        <span className="option option-add-to-watch-list"></span>
+                                                        <span className="option option-mark-as-favorite"></span>
+                                                        <span className="option option-rate"></span>
+                                                        <span className="option option-share"></span>
+                                                    </div> */}
+                                                </div>
                                             </div>
-                                            <div>
-                                                {/* Genres */}
-                                                <span>
-                                                {
-                                                    this.state.movieInfo.genres.map((item, index) => {
-                                                        return <Link key={index} className="movie-genre" to={`/movies/genre/${item.id}/${item.name}/page-1`}>{`${item.name} `}</Link>;
-                                                    })
-                                                }
-                                                </span>
-                                            </div>
-                                            <br/>
-                                            <p>
-                                                <strong>Runtime: </strong>
-                                                <span>{`${this.state.movieInfo.runtime} Minutes`}</span>
-                                            </p>
-                                            {/* Overview */}
-                                            <div>
-                                                <strong>Overview: </strong>
-                                                <span>{this.state.movieInfo.overview}</span>
-                                            </div>
-                                            {/* <div className="option-list">
-                                                <span className="option option-add-to-watch-list"></span>
-                                                <span className="option option-mark-as-favorite"></span>
-                                                <span className="option option-rate"></span>
-                                                <span className="option option-share"></span>
-                                            </div> */}
                                         </div>
                                     </div>
                                     <br/>
