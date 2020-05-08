@@ -76,7 +76,7 @@ class MovieDetail extends Component {
                 {!this.state.isLoading &&
                     <div className="container">
                         {/* Movie's backdrop */}
-                        <div className="movie-backdrop" style={{backgroundImage: `linear-gradient(to top, rgba(0, 7, 44, 0.55), rgba(2, 1, 27, 0.85), rgba(0, 0, 0, 0.9)), url(${Constant.BACKDROP_URL}${this.state.movieInfo.backdrop_path})`}}>
+                        <div className="movie-backdrop" style={{backgroundImage: `linear-gradient(to top, rgba(0, 7, 44, 0.25), rgba(2, 1, 27, 0.65), rgba(0, 0, 0, 0.9)), url(${Constant.BACKDROP_URL}${this.state.movieInfo.backdrop_path})`}}>
                             <img className="movie-poster-in-backdrop" src={this.state.movieInfo.poster_path === null ? movieThumb : `${Constant.POSTER_URL}${this.state.movieInfo.poster_path}`} alt={this.state.movieInfo.title} title={this.state.movieInfo.title} />
                         </div>
                         <div className="main-section">

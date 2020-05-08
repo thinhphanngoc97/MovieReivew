@@ -56,7 +56,7 @@ class Footer extends Component {
                                         <strong>Thinh Phan Ngoc</strong>
                                     </div>
                                     <div>
-                                        <a href="mailto:thinhphanngoc97@gmail.com">thinhphanngoc97@gmail.com</a>
+                                        <a href="mailto:thinhphanngoc97@gmail.com">pnthinh97@gmail.com</a>
                                     </div>
                                     <div>
                                         <p>Phone: (+84) 98 869 03 45</p>

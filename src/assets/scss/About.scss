@@ -3,11 +3,8 @@
 
     .profile-image {
         border-radius: 5px;
-        height: 110vw;
-        
-        @media (min-width: 992px) {
-            height: 30vw;
-        }
+        width: 100%;
+        height: auto;
     }
 
     .floating-card {

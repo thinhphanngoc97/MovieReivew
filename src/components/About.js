@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../assets/scss/About.scss';
-import image from '../assets/images/boss.jpg';
+import image from '../assets/images/boss2.jpg';
 
 class About extends Component {
     componentDidMount() {
@@ -52,7 +52,7 @@ class About extends Component {
                                     </div>
                                     <br/>
                                     <strong>Objective</strong>
-                                    <p>Constantly improving programming skills and understanding of technologies to become a professional front-end developer. I am looking for an opportunity to work in a challenging work environment where I can utilize my expertise, towards the development and implementation of the new ideas, contributing to growth of the organization.</p>
+                                    <p>I want to constantly improve programming skills and understanding of technologies to become a professional front-end developer. Hence I am always looking for opportunities to work in a challenging work environment where I can utilize my expertise, towards the development and implementation of the new ideas, contributing to growth of the organization.</p>
                                 </div>
                             </div>
                             <br/>
