@@ -94,7 +94,7 @@ class GenreMovies extends Component {
                             <br/>
                         </div>
                         <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                            <GenreMoviesList key={this.state.activePage} page={this.state.activePage} genreId={this.props.match.params.id}/>
+                            <GenreMoviesList key={this.props.match.params.id} page={this.state.activePage} genreId={this.props.match.params.id}/>
                             <div className="pagination-center">
                                 <Pagination
                                     activePage={this.state.activePage}

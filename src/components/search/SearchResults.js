@@ -51,7 +51,7 @@ class SearchResult extends Component {
         return(
             <div className="container">
                 <div className="search-result-main-section">
-                    <SearchResultList key={this.state.activePage} page={this.state.activePage} keyword={this.props.match.params.keyword} total={this.state.total}/>
+                    <SearchResultList page={this.state.activePage} keyword={this.props.match.params.keyword} total={this.state.total}/>
                     {this.state.total !== 0 && 
                     <div className="pagination-center">
                         <Pagination
