@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../assets/scss/About.scss';
-import image from '../assets/images/boss2.jpg';
+import image from '../assets/images/boss.jpg';
 
 class About extends Component {
     componentDidMount() {
@@ -38,7 +38,7 @@ class About extends Component {
                                     <div>
                                         <strong>Interests</strong>
                                     </div>
-                                    <p>Movie, Music, Travel</p>
+                                    <p>Movie, Music, Travel...</p>
                                 </div>
                             </div>
                             <br/>
@@ -48,11 +48,11 @@ class About extends Component {
                                 <div className="card-body">
                                     <h2 className="font-weight-bold">Thinh Phan Ngoc</h2>
                                     <div>
-                                        <strong>Front-end Developer</strong>
+                                        <strong>Web Developer</strong>
                                     </div>
                                     <br/>
-                                    <strong>Objective</strong>
-                                    <p>I want to constantly improve programming skills and understanding of technologies to become a professional front-end developer. Hence I am always looking for opportunities to work in a challenging work environment where I can utilize my expertise, towards the development and implementation of the new ideas, contributing to growth of the organization.</p>
+                                    <p>I am a simple, creative, enthusiastic and fun-loving person. I always like to create something on my own which is helpful for others.</p>
+                                    <p>My objective is constantly improving programming skills and understanding of technologies to become a professional web developer. Hence I am always looking for opportunities to work in a challenging work environment where I can utilize my expertise, towards the development and implementation of the new ideas.</p>
                                 </div>
                             </div>
                             <br/>
@@ -61,18 +61,33 @@ class About extends Component {
                                 <div className="card-body">
                                     <h4 className="font-weight-bold">Education</h4>
                                     <strong>University of Information Technology</strong>
-                                    <span> (Aug 2015 - Present)</span>
+                                    <div>Aug 2015 - Present</div>
                                     <div>
                                         <strong>Major: </strong>
                                         <span>Software Engineering</span>
                                     </div>
                                     <br/>
+                                    <br/>
                                     <h4 className="font-weight-bold">Work Experience</h4>
                                     <strong>Nichietsu System Development</strong>
-                                    <span> (Mar 2019 - May 2019)</span>
+                                    <div>Mar 2019 - May 2019</div>
                                     <div>
                                         <strong>Position: </strong>
-                                        <span>Full Stack Developer (Intern)</span>
+                                        <span>Web Application Developer</span>
+                                    </div>
+                                    <br/>
+                                    <strong>TMA Solutions</strong>
+                                    <div>Mar 2020 - May 2020</div>
+                                    <div>
+                                        <strong>Position: </strong>
+                                        <span>Quality Assurance Engineer</span>
+                                    </div>
+                                    <br/>
+                                    <strong>BeeSight Soft</strong>
+                                    <div>May 2020 - Present</div>
+                                    <div>
+                                        <strong>Position: </strong>
+                                        <span>Web Application Developer</span>
                                     </div>
                                 </div>
                             </div>

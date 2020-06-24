@@ -13,14 +13,14 @@ class Movies extends Component {
         this.state = {
             list: [],
             isLoading: true,
-            activePage: 1,
+            activePage: parseInt(props.match.params.page),
             total: 0,
         }
     }
 
     async handlePageChange(pageNumber) {
         await this.setState({activePage: pageNumber});
-        await this.props.history.replace({ pathname: `/movies/popular/page-${this.state.activePage}`});
+        await this.props.history.push({ pathname: `/movies/popular/page-${this.state.activePage}`});
     }
 
     componentDidMount() {

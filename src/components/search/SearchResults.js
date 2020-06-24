@@ -11,14 +11,14 @@ class SearchResult extends Component {
         super(props);
         this.state = {
             isLoading: true,
-            activePage: 1,
+            activePage: parseInt(props.match.params.page),
             total: 0,
         }
     }
 
     async handlePageChange(pageNumber) {
         await this.setState({activePage: pageNumber});
-        await this.props.history.replace({ pathname: `/search-results/${this.props.match.params.keyword}/page-${this.state.activePage}`});
+        await this.props.history.push({ pathname: `/search-results/${this.props.match.params.keyword}/page-${this.state.activePage}`});
     }
 
     componentDidMount() {
